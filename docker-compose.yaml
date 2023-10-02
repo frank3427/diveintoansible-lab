@@ -128,7 +128,7 @@ services:
     hostname: docker
     container_name: docker
     image: spurin/diveintoansible:dind
-    privileged: yes
+    privileged: true
     volumes:
      - ${ANSIBLE_HOME}/shared:/shared
     networks:
@@ -155,3 +155,10 @@ services:
 networks:
   diveinto.io:
     name: diveinto.io
+    # Canonical bridge interface name
+    #
+    # The setting below provides a friendly name for the bridge interface
+    # as seen in the likes of the ip command.  Use at your own discretion
+    #
+    #driver_opts:
+    #  com.docker.network.bridge.name: "diveinto.io"
